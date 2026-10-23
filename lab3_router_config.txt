@@ -1,0 +1,22 @@
+Router>enable
+Router#configure terminal
+Router(config)#hostname R1
+R1(config)#line console 0
+R1(config-line)#password cisco
+R1(config-line)#login
+R1(config-line)#exit
+R1(config)#enable password cisco
+R1(config)#line vty 0 4
+R1(config-line)#password cisco
+R1(config-line)#login
+R1(config-line)#exit
+R1(config)#interface gigabitEthernet0/1
+R1(config-if)#ip address 192.168.1.1 255.255.255.0
+R1(config-if)#no shutdown
+R1(config-if)#exit
+R1(config)#interface gigabitEthernet0/2
+R1(config-if)#ip address 192.168.2.1 255.255.255.0
+R1(config-if)#no shutdown
+R1(config-if)#end
+R1#show ip interface brief
+R1#write memory
